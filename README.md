@@ -30,9 +30,9 @@ Git clone https://github.com/fedesch26/Bep20-TipBot
 cd Bep20-TipBot
 ```
 * 3- third step
-```
-npm install
-```
+
+```npm install``` and ```yarn install```
+
 * 3- four step
  
 ```node index.js``` if you want run the bot forever please use ```pm2 start index.js ```

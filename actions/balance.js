@@ -22,9 +22,9 @@ composer.callbackQuery('mybalance', async (ctx, next) => {
   let mainText = '<b>✅ Tokens balance in your wallet</b>';
 
   let firstbal = await (await bnbApi).getBnbBalance(user.wallet);
-     then(res => {
-         console.log(res)
-     })
+     //then(res => {
+       //  console.log(res)
+     //})
 
   mainText += '\n<b>- BNB:</b> ' + firstbal;
 

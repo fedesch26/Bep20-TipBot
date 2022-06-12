@@ -3,13 +3,13 @@ const { BnbManager } = require('../core');
 const createClient = async (net) => {
   var bnbapi;
   if (!net) {
-    net = 'mainnet';
+    net = 'testnet';
   }
 
-  if (net == 'mainnet') {
-    bnbapi = new BnbManager('https://bsc-dataseed.binance.org/');
+  if (net == 'testnet') {
+    bnbapi = new BnbManager('https://bsc-dataseed1.binance.org');
   } else {
-    bnbapi = new BnbManager('https://bsc-dataseed.binance.org/');
+    bnbapi = new BnbManager('https://bsc-dataseed1.binance.org');
   }
 
   return bnbapi;

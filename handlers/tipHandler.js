@@ -18,16 +18,16 @@ const tipHandler = async (ctx, next) => {
   let exists = false;
   if (ctx.update.message.reply_to_message != undefined) {
     if (ctx.message.reply_to_message.from.is_bot == true) {
-       ctx.reply(tip('You Can not tip Bots'), {
-        reply_to_message_id: ctx.message.message_id,
-        parse_mode: 'HTML',
-       });
+      // ctx.reply(tip('You Can not tip Bots'), {
+      //   reply_to_message_id: ctx.message.message_id,
+      //   parse_mode: 'HTML',
+      // });
       return;
     } else if (ctx.message.reply_to_message.from.id == callUser) {
-       await ctx.reply(tip('You Can not tip yourself'), {
-         reply_to_message_id: ctx.message.message_id,
-         parse_mode: 'HTML',
-       });
+      // await ctx.reply(tip('You Can not tip yourself'), {
+      //   reply_to_message_id: ctx.message.message_id,
+      //   parse_mode: 'HTML',
+      // });
       return;
     } else {
       targetUser = ctx.message.reply_to_message.from.id;
@@ -36,10 +36,10 @@ const tipHandler = async (ctx, next) => {
     return;
   }
   if (!ctx.match) {
-     ctx.reply(tip('No Parameters Passed'), {
-       reply_to_message_id: ctx.message.message_id,
-       parse_mode: 'HTML',
-     });
+    // ctx.reply(tip('No Parameters Passed'), {
+    //   reply_to_message_id: ctx.message.message_id,
+    //   parse_mode: 'HTML',
+    // });
     return;
   } else {
     exists = true;
@@ -47,14 +47,15 @@ const tipHandler = async (ctx, next) => {
 
   if (exists && targetUser) {
     let arr = ctx.match.split(' ');
-    if (arr.length < 3) {
+    console.log(arr)
+    if (arr.length < 2) {
       ctx.reply(tip('Insufficient Parameters'), {
         reply_to_message_id: ctx.message.message_id,
         parse_mode: 'HTML',
       });
       return;
     }
-    let amount = arr[1] * 1;
+    let amount = arr[0] * 1;
 
     if (isNaN(amount)) {
       ctx.reply(tip('Invalid Amount'), {
@@ -62,7 +63,7 @@ const tipHandler = async (ctx, next) => {
         parse_mode: 'HTML',
       });
     }
-    let cur = arr[2];
+    let cur = arr[1];
     cur = cur.toUpperCase();
     if (cur == 'BNB') {
       let checkUser = await users.findOne({ id: callUser });

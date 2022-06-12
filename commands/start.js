@@ -32,10 +32,10 @@ composer.command('start', async (ctx, next) => {
         admin: ctx.from.id,
         approved_tokens: [
           {
-            tokenName: 'LBT',
-            contractAddress: '0x03eb5cf7c2fa04978a9584e16e1e4e763910e69f',
-            total_supply: 25000000,
-            decimal: 8,
+            tokenName: 'FLN',
+            contractAddress: '0xa0088Bef1AF2FB08F9b7e63B5971594562bA309D',
+            total_supply: 100000000,
+            decimal: 1,
           },
         ],
       });
